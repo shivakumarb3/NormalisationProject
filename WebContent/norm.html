@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Check Highest Normalisation</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+    <body style="background-image: url(bigimg3.jpg);margin-left:20px;margin-top: 10px;padding: 20px;overflow: scroll;">
+    
+    <br>
+    
+    <div class="dropdown"  >
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="spacing: 15px;padding:5px" >
+    More
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="norm.html">Home</a>
+    <a class="dropdown-item" href="norm.html">About Normalisation</a>
+    <a class="dropdown-item" href="about.html">About me</a>
+    <a class="dropdown-item" href="#">Future</a>
+  </div>
+</div>
+        <div class="container">
+           <center> <h1>Normalisation</h1></center>
+            <p>
+            A table is a relation in RDBMS.Normalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data. 
+                what is the need of normalisation? <br>
+                Normalisation is needed to avoid anomolies while perfroming operation on databases like write and delete.
+                <br>
+                consider a relation R(A,B,C,D), if A retrieves the B and c retrieves D(i,e A->B, C->D). If we want to insert the data of A,B we need to insert the data C and D similarly if we want to delete the data (A,B) we need to delete the record C,D unnecessarily. Redundancy of data may also be present because of this.(Every time we insert A,B we need to insert C,D and either C or D can be same for two or more attribute value of A) 
+                <br>
+                <div class="alert alert-primary" role="alert">
+  There are mainly 4Normal forms highly recommended to Know
+                    They are:
+                    <ul>
+                       <li> 1NF</li>
+                       <li> 2NF</li>
+                        <li>3NF</li>
+                       <li> BCNF</li>
+                        
+                    </ul>
+</div>
+            </p>
+        </div>
+    <br>
+    <div class="container">
+        <p> Here I am just providing the link for learning normal forms. But however I simply tells the tricks to find out normalisation of a table and conversion of them to highest  normal form.
+            <br>
+           <div class="alert alert-primary" role="alert">  <a href="https://www.techopedia.com/definition/1221/normalization">Visit here to learn more about </a>
+        </div>
+        </p>
+    </div>
+   <div class="container">
+       <h3>1NF</h3>
+     <p>  -All the attribute should be single valued not multivalued<br>
+       eg:Take an attribute called "phone number" a person can have one or more phone numbers, so just divide the phone number attribute into a sepcial or new table and take primary key of original table as referene key for new table.
+       </p>
+</div>
+<div class="container">
+    <h3>2NF</h3>
+    <p>- It should be in 1NF
+       - There should not be partial dependecies. consider above  R(A,B,C,D) and functional dependencies( A->B, C->D). The candidate key will be AC and to have no partial dependencies there should not be any dependency such that it is proper subset to candidate key and retrieving non prime attributes.
+        here we have C->D, here C is the proper subset of AC  and retrieving non prime attribute D, So it is not in 2nd NF to make it into 2NF divide the table R(A,B)
+        and R(C,D)
+    </p>
+    
+</div>
+<div class="container">
+    <h3>3NF</h3>
+    <p>- It should be in 2NF
+       - There should not be any transitive relation. Eg: A->B, B->c then A->C, this type of dependicies should not be present in the relation.
+        <br>
+        To say a relation in 3NF, if there is a dependency A->B, either 'A' should be a candidate key/superkey or B should be prime attribute.
+        in above relation after divison we have A->B here A is a primary key, satisfying our rule, C->D c is a candidate key as well.
+        So it is in 3NF.
+    </p>
+    
+</div>
+<div class="container">
+    <h3>BCNF</h3>
+    <p>- It should be in 3NF
+        -Every functional dependency should depend totally on a candidate key/superkey.
+        Eg: if A->B is there, A must be a candidate key/superkey. It is also called strict 3NF.
+       
+    </p>
+    
+</div>
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+you can try it this example in our site too <a href="index.html">visit</a></div>
+<br>
+
+   Thank you!
+</div>
+
+
+        
+        
+      <br>
+   <br>
+        
+        
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

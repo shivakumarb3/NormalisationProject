@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Check Highest Normalisation</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+    
+
+<body style="background-image: url(bigimg3.jpg);margin-left:20px;margin-top: 10px;padding: 20px;overflow: scroll;">
+    
+    <br>
+    
+    <div class="dropdown"  >
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="spacing: 15px;padding:5px" >
+    More
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="index.html">Home</a>
+    <a class="dropdown-item" href="norm.html">About Normalisation</a>
+    <a class="dropdown-item" href="about.html">About me</a>
+    <a class="dropdown-item" href="#">Future</a>
+  </div>
+</div>
+    <center>
+    <div class="container">
+    <h1>Highest Normalisation Checker</h1>
+    <p style="color:blue;">
+        we help you to find out the highest normalisation that a relation holds. you just need to give us
+        <br>
+        attributes and dependencies correctly from the relation.  By default we assume that relation is in 1NF, since we can't say which is multivalued based on it's name.
+        <br>
+        You can check more about normalisation at "more" at right up corner
+         <div class="alert alert-primary" role="alert">
+             <a href="norm.html">checkout more about normalisation</a>
+        </div>
+        
+    </p>
+        </div>
+    </center>
+    <div class="card" style="background-image: url(bigimg3.jpg)">
+        <div class="card-body px-lg-5 pt-0">
+    
+<form  onsubmit=" return myFunction()" action="nf.jsp"  method="post" class="text-center" style="color: #757575;">
+  
+    <input type="hidden" name="finalvalue" id="fv">
+     <input type="hidden" name="finalvalue2" id="fv2">
+    
+     <div class="md-form">
+        <label style="color:blue;">Enter Number of Relational attributes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </label>
+                    
+         
+          <input type="text" id="n"  name="n0a" placeholder="eg:1 or 2 or ..n" >
+          <br>
+    </div>
+    
+    
+    <div class="md-form">
+            
+        <label style="color: blue;">Enter Number of functional dependencies</label>
+        
+            <input type="text" name="nof" id="n2" >
+    </div>
+             
+    <div class="md-form">
+           
+        <div style="color:blue;" > Enter relational attributes:</div><input type="text" id="at" name="attributes" placeholder="enter with cama eg: a,b,c" class="form-control" >
+    </div>
+            
+      <br>
+         
+  <input type="submit"  class="btn btn-outline-primary" value="check">
+   
+    
+      
+</form>
+        </div>
+    </div>
+   
+    <script>
+function myFunction() {
+  noa=document.getElementById("n").value;
+  nof =document.getElementById("n2").value;
+    if(isNaN(noa)|| noa==null||noa==""){
+        alert("enter number of attributes properly");
+        return false;
+       }
+     if(isNaN(nof)|| nof==null||nof==""){
+        alert("enter number of functional dependencies properly");
+        return false;
+       }
+    else
+        {
+            left=""
+            right=""
+            el=document.getElementById("at").value;
+            
+            el=el.split(",");
+            if(el.length!=Number(noa)){
+                alert("please enter correct number of relation attributes");
+                return false;
+              }
+            else{
+            for(i=0;i<Number(nof);i++){
+              v=  prompt("enter left hand side production of "+Number(i+1)+" th dependency seperated by camas");
+                
+                s=prompt("enter right hand side production of "+Number(i+1)+" th dependency seperated by camas");
+                
+              left=left+"-"+v;
+                right =right+"-"+s;
+            }
+                
+                
+            }
+            
+            document.getElementById("fv").value=left;
+            document.getElementById("fv2").value=right;
+            return true;
+            
+        }
+}
+
+       
+</script>
+    <br><br>
+    
+<div class="container" style="color:blue;" class="alert alert-primary" role="alert">
+    <p>The main theme of this project is a human can solve a relation with 5-10 attributes, but what if we have 20 or more. I hope this project may be useful for that.
+        <br>
+        Thank you!
+         <div class="alert alert-primary" role="alert">
+             You can find more about me  <a href="about.html">checkout</a></div>
+    </p>
+</div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
